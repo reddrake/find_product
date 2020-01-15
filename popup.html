@@ -2,18 +2,27 @@
   <html>
     <head>
       <meta charset="UTF-8">
-      <style>
-        body{
-          width: 600px;
-          height:450px;
-        }
-        button {
-          outline: none;
-        }
-      </style>
+      <link rel="stylesheet" href="static/bootstrap.min.css">
+      <link rel="stylesheet" href="static/popup.css">
     </head>
     <body>
-			<button id="pick">采集</button>
+      <table id="products" class="table table-bordered">
+        <thead>
+          <tr>
+            <th>缩略图</th>
+            <th>名称</th>
+            <th>价格</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="4" align="center">暂无需要采集的产品</td>
+          </tr>
+        </tbody>
+      </table>
+      <script src="static/jquery.min.js"></script>
+      <script src="static/lodash.min.js"></script>
 			<script src="static/popup.js"></script>
     </body>
   </html>

@@ -38,8 +38,20 @@
     border-color: #4cae4c;
 }
 
+.fp_tools .btn-success:hover {
+    color: #fff;
+    background-color: #449d44;
+    border-color: #398439;
+}
+
 .fp_tools .btn-danger {
     color: #fff;
     background-color: #d9534f;
     border-color: #d43f3a;
+}
+
+.fp_tools .btn-danger:hover {
+    color: #fff;
+    background-color: #c9302c;
+    border-color: #ac2925;
 }

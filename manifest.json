@@ -4,7 +4,7 @@
 	"description": "find alibaba and aliexpress product and insert to opencart",
 	"permissions": [
     "declarativeContent",
-		"activeTab",
+	"activeTab",
     "storage",
     "tabs",
     "webRequestBlocking",
@@ -13,7 +13,10 @@
     "notifications"
 	],
 	"background": {
-		"scripts": ["static/background.js"],
+		"scripts": [
+			"static/lodash.min.js", 
+			"static/background.js"
+		],
 		"persistent": false
 	},
 	"page_action": {
@@ -37,7 +40,7 @@
         "*://*.alibaba.com/*"
       ],
       "js": [
-        "static/jquery.min.js",
+		"static/jquery.min.js",
         "static/content_script.js"
 	  ],
 	  "css": [
