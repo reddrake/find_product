@@ -82,8 +82,10 @@ function extractDelivery() {
 function extractThumbs() {
   let thumbs = []
 
-  $('ul.inav .item img').each(function () {
-    thumbs.push($(this).attr('src'))
+  $('ul.inav .item').each(function () {
+    if(!$(this).hasClass('play')){
+      thumbs.push($(this).find('img').attr('src'))
+    }
   })
 
   return thumbs
