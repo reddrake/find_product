@@ -1,4 +1,24 @@
 body{
   width: 600px;
   height:450px;
+  padding-bottom: 50px;
+}
+
+.content{
+  height: 400px;
+  overflow-y: auto;
+}
+
+.buttons{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  background-color: #eee;
+}
+
+button.setting{
+  position: absolute;
+  right: 10px;
 }

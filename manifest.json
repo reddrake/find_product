@@ -14,7 +14,8 @@
 	],
 	"background": {
 		"scripts": [
-			"static/lodash.min.js", 
+			"static/lodash.min.js",
+			"static/products.js",
 			"static/background.js"
 		],
 		"persistent": false
@@ -40,11 +41,13 @@
         "*://*.alibaba.com/*"
       ],
       "js": [
-		"static/jquery.min.js",
+        "static/jquery.min.js",
+		"static/alert.js",
         "static/content_script.js"
 	  ],
 	  "css": [
-		"static/content_script.css"
+		  "static/alert.css",
+		  "static/content_script.css"
 	  ],
       "run_at" : "document_end",
       "all_frames": false

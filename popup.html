@@ -3,26 +3,35 @@
     <head>
       <meta charset="UTF-8">
       <link rel="stylesheet" href="static/bootstrap.min.css">
+      <link rel="stylesheet" href="static/alert.css">
       <link rel="stylesheet" href="static/popup.css">
     </head>
     <body>
-      <table id="products" class="table table-bordered">
-        <thead>
-          <tr>
-            <th>缩略图</th>
-            <th>名称</th>
-            <th>价格</th>
-            <th>操作</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td colspan="4" align="center">暂无需要采集的产品</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="content">
+        <table id="products" class="table table-bordered">
+          <thead>
+            <tr>
+              <th width="80px">缩略图</th>
+              <th>名称</th>
+              <th width="120px">价格</th>
+              <th width="50px">操作</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="buttons">
+        <button id="sendToSite" class="btn btn-primary">采集入库</button>
+        <button id="goToOptions" class="btn btn-warning setting"><i class="glyphicon glyphicon-cog"></i></button>
+      </div>
       <script src="static/jquery.min.js"></script>
+      <script src="static/bootstrap.min.js"></script>
       <script src="static/lodash.min.js"></script>
+      <script src="static/alert.js"></script>
+      <script src="static/products.js"></script>
+      <script src="static/api.js"></script>
 			<script src="static/popup.js"></script>
     </body>
   </html>
