@@ -1,39 +1,40 @@
 {
-	"name": "Find Product",
-	"version": "1.0",
-	"description": "find alibaba and aliexpress product and insert to opencart",
-	"permissions": [
+  "name": "Find Product",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "find alibaba and aliexpress product and insert to opencart",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
     "declarativeContent",
-	"activeTab",
+    "activeTab",
     "storage",
     "tabs",
     "webRequestBlocking",
     "alarms",
     "contextMenus",
     "notifications"
-	],
-	"background": {
-		"scripts": [
-			"static/lodash.min.js",
-			"static/products.js",
-			"static/background.js"
-		],
-		"persistent": false
-	},
-	"page_action": {
-		"default_popup": "popup.html",
-		"default_icon": {
-			"16": "icons/icon16.png",
-			"32": "icons/icon32.png",
-			"48": "icons/icon48.png",
-			"128": "icons/icon128.png"
-		}
-	},
-	"icons": {
-		"16": "icons/icon16.png",
-		"32": "icons/icon32.png",
-		"48": "icons/icon48.png",
-		"128": "icons/icon128.png"
+  ],
+  "background": {
+    "scripts": [
+      "library/lodash.min.js",
+      "model/products.js",
+      "static/background.js"
+    ],
+    "persistent": false
+  },
+  "page_action": {
+    "default_popup": "static/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
   },
   "content_scripts": [
     {
@@ -41,17 +42,16 @@
         "*://*.alibaba.com/*"
       ],
       "js": [
-        "static/jquery.min.js",
-		"static/alert.js",
+        "library/jquery.min.js",
+        "vendor/alert.js",
         "static/content_script.js"
-	  ],
-	  "css": [
-		  "static/alert.css",
-		  "static/content_script.css"
-	  ],
+    ],
+    "css": [
+      "vendor/alert.css",
+      "static/content_script.css"
+    ],
       "run_at" : "document_end",
       "all_frames": false
     }
-  ],
-	"manifest_version": 2
+  ]
 }

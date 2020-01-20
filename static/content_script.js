@@ -4,8 +4,10 @@ chrome.runtime.onMessage.addListener(
       "from a content script:" + sender.tab.url :
       "from the extension")
 
-    if (request.action == 'remove') {
-      destroyProduct(request.data.id)
+    if (request.action == 'remove' && request.data.id == extractId()) {
+      $('#removeToList').addClass('hide')
+      $('#insertToList').removeClass('hide')
+
       return sendResponse({
         code: "ok"
       })
@@ -123,7 +125,7 @@ function destroyProduct(id) {
         $('#insertToList').removeClass('hide')
       }
 
-      warning_prompt('已从待采集列表删除')
+      fpAlert.warning('已从待采集列表删除')
     }
   })
 }
@@ -149,7 +151,7 @@ $(function () {
           $('#insertToList').addClass('hide')
           $('#removeToList').removeClass('hide')
 
-          success_prompt('成功加入待采集列表')
+          fpAlert.success('成功加入待采集列表')
         }
       })
     })

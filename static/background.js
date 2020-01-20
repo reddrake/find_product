@@ -14,18 +14,18 @@ chrome.runtime.onMessage.addListener(
 	function(request, sender, sendResponse) {
 	  console.log(sender.tab ?
 				  "from a content script:" + sender.tab.url :
-          "from the extension");
-    
+          "from the extension")
+
     if(request.action == 'insert'){
-      insertProduct(request.data, sender.tab.url)
+      productModel.store(request.data, sender.tab)
     }
 
     if(request.action == 'remove'){
-      removeProduct(request.data.id)
+      productModel.remove(request.data.id)
     }
 
     if(request.action == 'check'){
-      return sendResponse({exist: checkExist(request.data.id)})
+      return sendResponse({exist: productModel.isExist(request.data.id)})
     }
 
     sendResponse({farewell: "ok"})
