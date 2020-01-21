@@ -105,6 +105,9 @@ function extractPrices() {
         prices[key] = value
       }
     })
+  }else if($('div.ma-reference-price-promotion-price .ma-props').length > 0){
+    prices['promotion'] = $('div.ma-reference-price-promotion-price .ma-props .ma-reference-price-highlight').text().replace(/^\s+|\s+$/g, '')
+    prices['origin'] = $('div.ma-reference-price-promotion-price .ma-props .ma-promotion-props').text().replace(/^\s+|\s+$/g, '')
   } else {
     prices['range'] = $('span.ma-ref-price').text()
   }

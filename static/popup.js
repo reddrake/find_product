@@ -38,11 +38,13 @@ $(function () {
 
   //3.响应提交按钮
   $('#sendToSite').bind('click', function () {
+    var $btn = $(this).button('loading')
     opencart.addProduct(productModel.all(), function(response){
       if(response.code == 200){
         fpAlert.success(response.msg)
         productModel.clear()
         popup.fetchIndexData()
+        $btn.button('reset')
       }else{
         fpAlert.fail(response.msg)
       }
