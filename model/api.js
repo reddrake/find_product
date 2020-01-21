@@ -58,7 +58,7 @@ var opencart = {
         success: function (json) {
           if (json.error) {
             if (json.error.warning == 'error_permission') {
-              this.refreshApiToken(function () {
+              opencart.refreshApiToken(function () {
                 opencart.addProduct(data, callback)
               })
             }
