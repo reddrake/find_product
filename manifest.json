@@ -1,6 +1,6 @@
 {
   "name": "Find Product",
-  "version": "1.0",
+  "version": "1.0.1",
   "manifest_version": 2,
   "description": "Find you like product from alibaba and aliexpress and etc. Then import the products to opencart web site.",
   "icons": {
