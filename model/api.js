@@ -15,7 +15,7 @@ var opencart = {
   },
   refreshApiToken(callback) {
     if (!this.configs.key || !this.configs.domain || !this.configs.username) {
-      fpAlert.fail('请配置API的参数')
+      callback({code: 500, msg: '请配置API的参数'})
     } else {
       let opencart = this
       $.ajax({
@@ -28,7 +28,10 @@ var opencart = {
         success: function (data) {
           if (data.success) {
             opencart.setConfig('token', data.api_token)
+            console.log('success')
             callback()
+          }else{
+            callback({code: 500, msg: _.values(data.error).join("\n")})
           }
         },
         dataType: 'json'
@@ -40,12 +43,16 @@ var opencart = {
     this.init()
 
     if(data.length == 0){
-      return fpAlert.fail('你还未选择需要采集的商品')
+      return callback({code: 500, msg: '你还未选择需要采集的商品'})
     }
 
     if (!this.configs.token) {
-      this.refreshApiToken(function () {
-        opencart.addProduct(data, callback)
+      this.refreshApiToken(function (message = {}) {
+        if(!_.isEmpty(message)){
+          callback(message)
+        }else{
+          opencart.addProduct(data, callback)
+        }
       })
     } else {
       $.ajax({
@@ -58,9 +65,15 @@ var opencart = {
         success: function (json) {
           if (json.error) {
             if (json.error.warning == 'error_permission') {
-              opencart.refreshApiToken(function () {
-                opencart.addProduct(data, callback)
+              opencart.refreshApiToken(function (message = {}) {
+                if(!_.isEmpty(message)){
+                  callback(message)
+                }else{
+                  opencart.addProduct(data, callback)
+                }
               })
+            }else{
+              callback(json)
             }
           }else {
             callback(json)

@@ -44,10 +44,10 @@ $(function () {
         fpAlert.success(response.msg)
         productModel.clear()
         popup.fetchIndexData()
-        $btn.button('reset')
       }else{
         fpAlert.fail(response.msg)
       }
+      $btn.button('reset')
     })
   })
 
