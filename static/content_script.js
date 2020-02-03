@@ -45,13 +45,13 @@ function extractSubject() {
   return $('h1.ma-title').text()
 }
 
-function extractCatelog() {
-  let catelogs = []
+function extractCatalog() {
+  let catalogs = []
   $('div.detail-subscribe li.breadcrumb-item a.breadcrumb-link').each(function(){
-    catelogs.push($(this).text().replace(/^\s+|\s+$/g, ''))
+    catalogs.push($(this).text().replace(/^\s+|\s+$/g, ''))
   })
 
-  return catelogs
+  return catalogs
 }
 
 function extractDetails() {
@@ -147,7 +147,7 @@ $(function () {
           delivery: extractDelivery(),
           thumbs: extractThumbs(),
           prices: extractPrices(),
-          catelogs: extractCatelog()
+          catalogs: extractCatalog()
         }
       }, function (response) {
         if (response.farewell == 'ok') {
