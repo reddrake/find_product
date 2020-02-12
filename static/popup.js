@@ -55,4 +55,11 @@ $(function () {
   $('#goToOptions').bind('click', function () {
     opencart.admin()
   })
+
+  //5.取消所有产品
+  $('#removeAll').bind('click', function(){
+    productModel.clear()
+    fpAlert.success('全部产品已从待采集列表删除')
+    popup.fetchIndexData()
+  })
 })
