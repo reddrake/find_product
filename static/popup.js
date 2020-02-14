@@ -31,9 +31,11 @@ $(function () {
 
   //2.响应取消按钮
   $('.remove').bind('click', function () {
+    console.log($(this).data('id'))
     productModel.remove($(this).data('id'))
     fpAlert.warning('已从待采集列表删除')
-    popup.fetchIndexData()
+    $(this).parents('tr').remove()
+    //popup.fetchIndexData()
   })
 
   //3.响应提交按钮
@@ -59,7 +61,7 @@ $(function () {
   //5.取消所有产品
   $('#removeAll').bind('click', function(){
     productModel.clear()
-    fpAlert.success('全部产品已从待采集列表删除')
+    fpAlert.warning('全部产品已从待采集列表删除')
     popup.fetchIndexData()
   })
 })
