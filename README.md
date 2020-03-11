@@ -1,5 +1,5 @@
 # find_product
-Find you like product from alibaba and aliexpress and etc. Then import the products to opencart web site.
+Find you like product from alibaba. Then import the products to opencart web site.
 
 ## feature
 1. Pick Alibaba's goods informate
